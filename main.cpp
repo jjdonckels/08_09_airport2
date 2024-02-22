@@ -90,14 +90,19 @@ int main(int argv, char** argc) {
     // _print_list(emptyTest);
 
     // testing _insert_before
-    cout << "Original:\n";
-    _print_list(head1);
-    node<int>* before;
-    before = &c;
-    node<int>* inserted = _insert_before(head1, before, 13);
-    cout << "\nUpdated should have 13 between 10 and 15:\n";
-    _print_list(head1);
-    cout << endl;
+    // cout << "Original:\n";
+    // _print_list(head1);
+    // node<int>* before;
+    // before = &c;
+    // node<int>* inserted = _insert_before(head1, before, 13);
+    // cout << "\nUpdated should have 13 between 10 and 15:\n";
+    // _print_list(head1);
+    // cout << endl;
+
+    // testing _previous_node
+    cout << "Should be 10:\n";
+    node<int>* priorNode = _previous_node(head1, &c);
+    cout << *priorNode << endl;
     
 
 

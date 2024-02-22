@@ -108,9 +108,20 @@ node<T>* _insert_before(node<T>*& head,
     }
 }
 
-// //ptr to previous node
-// template <typename T>
-// node<T>* _previous_node(node<T>* prev_to_this);
+//ptr to previous node
+// need head bc single linked list
+template <typename T>
+node<T>* _previous_node(node<T>* head, node<T>* prev_to_this){
+    assert(prev_to_this != NULL && "previous should not be NULL");
+    assert(prev_to_this != head && "_previous_node cannot look prior to head");
+    node<T>* temp;
+    temp = head;
+    // loop through until temp right before prev_to_this
+    while (temp->_next != prev_to_this){
+        temp = temp->_next;
+    }
+    return temp;
+}
 
 // //delete, return item
 // template <typename T>
