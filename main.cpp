@@ -52,6 +52,18 @@ int main(int argv, char** argc) {
     //     cout << &dd << " " << target2 << endl;
     //     cout << dd << " " << *target2 << endl;
     // }
+
+    // testing _insert_head
+    // cout << "Original:\n";
+    // _print_list(head1);
+    // head1 = _insert_head(head1, 450);
+    // cout << "\nNew head should be 450:\n";
+    // _print_list(head1);
+    // cout << endl << *head1 << endl;
+    cout << "if empty list:\n";
+    node<int>* list1;
+    list1 = _insert_head(list1, 87);
+    _print_list(list1);
     
 
 

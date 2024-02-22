@@ -48,10 +48,16 @@ node<T>* _search_list(node<T>* head,
     return NULL;
 }
 
-
-// template <typename T>
-// node<T>* _insert_head(node<T> *&head,
-//                             T insert_this);
+//insert additional node at head of list
+template <typename T>
+node<T>* _insert_head(node<T> *&head,
+                            T insert_this){
+    node<T>* newNode = new node<T>(insert_this, head); // old head is _next
+    // update head
+    head = newNode;
+    
+    return head;
+}
 
 // //insert after ptr: insert head if marker null
 // template <typename T>
