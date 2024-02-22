@@ -19,14 +19,34 @@ void _print_list(node<T>* head){
     cout << "NULL";
 }
 
-// //recursive fun! :)
-// template <typename T>
-// void _print_list_backwards(node<T> *head);
+//recursive fun! :)
+template <typename T>
+void _print_list_backwards(node<T> *head){
+    // base case
+    if (head == NULL){
+        return;
+    }
+    else {
+        _print_list_backwards(head->_next);
+        cout << *head;
+    }
+}
 
-// //return ptr to key or NULL
-// template <typename T>
-// node<T>* _search_list(node<T>* head,
-//                             T key);
+//return ptr to key or NULL
+template <typename T>
+node<T>* _search_list(node<T>* head,
+                            T key){
+    node<T>* temp;
+    temp = head;
+    assert(temp != NULL);
+    while (temp != NULL){
+        if (temp->_item == key){
+            return temp;
+        }
+        temp = temp->_next;
+    }
+    return NULL;
+}
 
 
 // template <typename T>

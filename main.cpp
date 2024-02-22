@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
 #include "includes/linked_list_functions/linkedlistfunctionsTemplated.h"
 #include "includes/node/node.h"
 
@@ -12,19 +13,47 @@ int main(int argv, char** argc) {
 
     // cout << "\n\n\n=====================" << endl;
 
-    // test linked list
+    // sample int linked list
     node<int> d(20);
     node<int> c(15, &d, NULL);
     node<int> b(10, &c, NULL);
     node<int> a(5, &b, NULL);
+    node<int>* head1 = &a;
 
-    node<int>* head = &a;
+    // sample string linked list
+    node<string> dd("four");
+    node<string> cc("three", &dd, NULL);
+    node<string> bb("two", &cc, NULL);
+    node<string> aa("one", &bb, NULL);
+    node<string>* head2 = &aa;
 
-    cout << "Testing _print_list:\n";
 
-    _print_list(head);
+    // test _print_list (and backwards)
+    // cout << "Testing _print_list:\n";
+    // _print_list(head1);
+    // cout << endl;
+    // cout << "Testing _print_list_backwards:\n";
+    // _print_list_backwards(head1);
+    // cout << endl;
 
-    cout << endl;
+    // test _search_list
+    // node<int>* target1 = _search_list(head1, 15);
+    // cout << &c << " " << target1 << endl;
+    // cout << c << " " << *target1 << endl;
+
+    // string s = "five";
+    // _print_list(head2);
+    // cout << endl;
+    // node<string>* target2 = _search_list(head2, s);
+    // if (target2 == NULL){
+    //     cout << "\ntarget is NULL\n";
+    // }
+    // else {
+    //     cout << &dd << " " << target2 << endl;
+    //     cout << dd << " " << *target2 << endl;
+    // }
+    
+
 
     return 0;
 }
