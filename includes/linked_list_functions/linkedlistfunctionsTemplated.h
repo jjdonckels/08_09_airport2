@@ -66,7 +66,7 @@ node<T>* _insert_after(node<T>*& head,
                                 T insert_this){
     // case for empty list
     if (head == NULL){
-        return NULL;
+        return _insert_head(head, insert_this);
     }
     else if (after_this == NULL){
         // create new node after head
@@ -84,11 +84,29 @@ node<T>* _insert_after(node<T>*& head,
     }
 }
 
-// //insert before ptr: insert head if marker null
-// template <typename T>
-// node<T>* _insert_before(node<T>*& head,
-//                                 node<T>* before_this,
-//                                 T insert_this);
+//insert before ptr: insert head if marker null
+template <typename T>
+node<T>* _insert_before(node<T>*& head,
+                                node<T>* before_this,
+                                T insert_this){
+    // case for inserting at head of list
+    if (head == NULL || before_this == head || before_this == NULL){
+        return _insert_head(head, insert_this);
+    }
+    else {
+        // case for inserting not at head
+        node<T>* newNode = new node<T>(insert_this, before_this);
+        // loop up to before_this to find front node to connect to newNode
+        node<T>* prevNode;
+        prevNode = head;
+        while (prevNode->_next != before_this){
+            prevNode = prevNode->_next;
+        }
+        // connect prevNode to newNode
+        prevNode->_next = newNode;
+        return newNode;
+    }
+}
 
 // //ptr to previous node
 // template <typename T>

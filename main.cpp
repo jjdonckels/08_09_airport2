@@ -73,7 +73,6 @@ int main(int argv, char** argc) {
     // node<int>* inserted = _insert_after(head1, after, 17);
     // _print_list(head1);
     // cout << "\nInserted node value: " << *inserted << endl;
-    
     // cout << "\n\nTesting insert after just head. Original:\n";
     // node<int> newHead(28);
     // node<int>* headptr;
@@ -84,15 +83,21 @@ int main(int argv, char** argc) {
     // _print_list(headptr);
     // cout << "\nInserted node should be 99: " << *inserted1 << endl;
     // test empty list
-    node<int>* testHead;
-    node<int>* testAfter;
-    node<int>* emptyTest = _insert_after(testHead, testAfter, 5);
-    if (emptyTest == NULL){
-        cout << "value is NULL as expected\n";
-    }
-    else {
-        cout << "error\n";
-    }
+    // node<int>* testHead;
+    // node<int>* testAfter;
+    // node<int>* emptyTest = _insert_after(testHead, testAfter, 32);
+    // cout << "list should only have 32:\n";
+    // _print_list(emptyTest);
+
+    // testing _insert_before
+    cout << "Original:\n";
+    _print_list(head1);
+    node<int>* before;
+    before = &c;
+    node<int>* inserted = _insert_before(head1, before, 13);
+    cout << "\nUpdated should have 13 between 10 and 15:\n";
+    _print_list(head1);
+    cout << endl;
     
 
 
