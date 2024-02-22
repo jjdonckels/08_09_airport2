@@ -59,11 +59,30 @@ node<T>* _insert_head(node<T> *&head,
     return head;
 }
 
-// //insert after ptr: insert head if marker null
-// template <typename T>
-// node<T>* _insert_after(node<T>*& head,
-//                                 node<T> *after_this,
-//                                 T insert_this);
+//insert after ptr: insert head if marker null
+template <typename T>
+node<T>* _insert_after(node<T>*& head,
+                                node<T> *after_this,
+                                T insert_this){
+    // case for empty list
+    if (head == NULL){
+        return NULL;
+    }
+    else if (after_this == NULL){
+        // create new node after head
+        node<T>* newNode = new node<T>(insert_this);
+        // connect head to newNode
+        head->_next = newNode;
+        return newNode;
+    }
+    else {
+        // case if list has at least two nodes
+        // create new node connected to node after after_this
+        node<T>* newNode = new node<T>(insert_this, after_this->_next);
+        after_this->_next = newNode;
+        return newNode;
+    }
+}
 
 // //insert before ptr: insert head if marker null
 // template <typename T>

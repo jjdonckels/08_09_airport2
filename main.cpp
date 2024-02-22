@@ -60,10 +60,39 @@ int main(int argv, char** argc) {
     // cout << "\nNew head should be 450:\n";
     // _print_list(head1);
     // cout << endl << *head1 << endl;
-    cout << "if empty list:\n";
-    node<int>* list1;
-    list1 = _insert_head(list1, 87);
-    _print_list(list1);
+    // cout << "if empty list:\n";
+    // node<int>* list1;
+    // list1 = _insert_head(list1, 87);
+    // _print_list(list1);
+
+    // test _insert_after
+    // cout << "Original:\n";
+    // _print_list(head1);
+    // cout << "\n\nUpdated:\n";
+    // node<int>* after = &c;
+    // node<int>* inserted = _insert_after(head1, after, 17);
+    // _print_list(head1);
+    // cout << "\nInserted node value: " << *inserted << endl;
+    
+    // cout << "\n\nTesting insert after just head. Original:\n";
+    // node<int> newHead(28);
+    // node<int>* headptr;
+    // headptr = &newHead;
+    // _print_list(headptr);
+    // node<int>* inserted1 = _insert_after(headptr, headptr->_next, 99);
+    // cout << "\nUpdated:\n";
+    // _print_list(headptr);
+    // cout << "\nInserted node should be 99: " << *inserted1 << endl;
+    // test empty list
+    node<int>* testHead;
+    node<int>* testAfter;
+    node<int>* emptyTest = _insert_after(testHead, testAfter, 5);
+    if (emptyTest == NULL){
+        cout << "value is NULL as expected\n";
+    }
+    else {
+        cout << "error\n";
+    }
     
 
 
