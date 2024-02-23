@@ -157,7 +157,7 @@ T _delete_node(node<T>*& head, node<T>* delete_this){
 //duplicate the list...
 template <typename T>
 node<T>* _copy_list(node<T>* head){
-    assert(head);
+    assert(head && "tried to copy empty list in _copy_list");
     node<T>* newHead = new node<T>(head->_item);
     node<T>* prevNode = newHead;
     node<T>* tempNode = head->_next;
@@ -170,10 +170,27 @@ node<T>* _copy_list(node<T>* head){
     return newHead;
 }
 
-// //duplicate the list, return pointer to last node in dest... 
-// //     use this function in your queue big three 
-// template <typename T>
-// node<T> *_copy_list(node<T> *&dest, node<T> *src);
+//duplicate the list, return pointer to last node in dest... 
+//     use this function in your queue big three 
+template <typename T>
+node<T> *_copy_list(node<T> *&dest, node<T> *src){
+    assert(src && "tried to copy empty list in _copy_list src to dest");
+    if (dest == NULL){
+        dest = new node<T>(src->_item);
+    }
+    else {
+        dest->_item = src->_item;
+    }
+    node<T>* prevNode = dest;
+    node<T>* tempNode = src->_next;
+    while (tempNode != NULL){
+        node<T>* newNode = new node<T>(tempNode->_item);
+        prevNode->_next = newNode;
+        tempNode = tempNode->_next;
+        prevNode = prevNode->_next;
+    }
+    return prevNode;
+}
 
 
 
