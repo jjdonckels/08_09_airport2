@@ -11,12 +11,13 @@ template <typename T>
 void _print_list(node<T>* head){
     node<T>* temp;
     temp = head;
-    assert(temp != NULL);
+    if (temp == NULL){
+        cout << "Empty list";
+    }
     while (temp != NULL){
         cout << *temp;
         temp = temp->_next;
     }
-    cout << "NULL";
 }
 
 //recursive fun! :)
@@ -194,9 +195,16 @@ node<T> *_copy_list(node<T> *&dest, node<T> *src){
 
 
 
-// //delete all the nodes
-// template <typename T>
-// void _clear_list(node<T>*& head);
+//delete all the nodes
+template <typename T>
+void _clear_list(node<T>*& head){
+    while (head != NULL){
+        node<T>* temp;
+        temp = head;
+        head = head->_next;
+        delete temp;
+    }
+}
 
 // //_item at this position
 // template <typename T>

@@ -147,33 +147,40 @@ int main(int argv, char** argc) {
 
     // testing _copy_list src to dest
     // create dyanmic linked list
+    // node<int>* node3 = new node<int>(9);
+    // node<int>* node2 = new node<int>(6, node3);
+    // node<int>* node1 = new node<int>(3, node2);
+    // cout << "Original:\n";
+    // cout << node1 << " | " << node2 << " | " << node3 << endl;
+    // node<int> tempHead(28);
+    // node<int>* newHead = &tempHead;
+    // node<int>* lastNode;
+
+    // cout << "head: " << newHead << " | last: " << lastNode << "\n\n";
+
+    // lastNode = _copy_list(newHead, node1);
+    // cout << "\n\nCopy:\n";
+    // cout << newHead << " | "
+    //      << newHead->_next << " | "
+    //      << newHead->_next->_next << "\n\n";
+    // cout << "\nOriginal values:\n";
+    // _print_list(node1);
+    // cout << "\nCopy values:\n";
+    // _print_list(newHead);
+    // cout << "\n\n";
+
+    // testing _clear_list
     node<int>* node3 = new node<int>(9);
     node<int>* node2 = new node<int>(6, node3);
     node<int>* node1 = new node<int>(3, node2);
     cout << "Original:\n";
-    cout << node1 << " | " << node2 << " | " << node3 << endl;
-    node<int> tempHead(28);
-    node<int>* newHead = &tempHead;
-    node<int>* lastNode;
-
-    cout << "head: " << newHead << " | last: " << lastNode << "\n\n";
-
-    lastNode = _copy_list(newHead, node1);
-    cout << "\n\nCopy:\n";
-    cout << newHead << " | "
-         << newHead->_next << " | "
-         << newHead->_next->_next << "\n\n";
-    cout << "\nOriginal values:\n";
     _print_list(node1);
-    cout << "\nCopy values:\n";
-    _print_list(newHead);
-    cout << "\n\n";
+    _clear_list(node1);
+    cout << "\n\nAfter clearing:\n";
+    _print_list(node1);
 
-    delete node1;
-    delete node2;
-    delete node3;
-    delete lastNode;
-    delete newHead->_next;
+
+    
 
     
 
