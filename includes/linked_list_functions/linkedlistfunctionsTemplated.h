@@ -206,8 +206,19 @@ void _clear_list(node<T>*& head){
     }
 }
 
-// //_item at this position
-// template <typename T>
-// T& _at(node<T>* head, int pos);
+//_item at this position
+template <typename T>
+T& _at(node<T>* head, int pos){
+    assert(pos >= 0 && "pos in _at cannot be negative");
+    node<T>* temp;
+    temp = head;
+    for (int i = 0; i < pos; i++){
+        temp = temp->_next;
+        if (temp == NULL){
+            throw out_of_range("pos in _at is out of range");
+        }
+    }
+    return temp->_item;
+}
 
 #endif

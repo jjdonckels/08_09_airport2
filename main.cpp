@@ -170,22 +170,20 @@ int main(int argv, char** argc) {
     // cout << "\n\n";
 
     // testing _clear_list
-    node<int>* node3 = new node<int>(9);
-    node<int>* node2 = new node<int>(6, node3);
-    node<int>* node1 = new node<int>(3, node2);
-    cout << "Original:\n";
-    _print_list(node1);
-    _clear_list(node1);
-    cout << "\n\nAfter clearing:\n";
-    _print_list(node1);
+    // node<int>* node3 = new node<int>(9);
+    // node<int>* node2 = new node<int>(6, node3);
+    // node<int>* node1 = new node<int>(3, node2);
+    // cout << "Original:\n";
+    // _print_list(node1);
+    // _clear_list(node1);
+    // cout << "\n\nAfter clearing:\n";
+    // _print_list(node1);
 
-
-    
-
-    
-
-    
-
+    // testing _at
+    // node<int>* node3 = new node<int>(9);
+    // node<int>* node2 = new node<int>(6, node3);
+    // node<int>* node1 = new node<int>(3, node2);
+    // cout << "Expected 9: " << _at(node1, 2) << endl;
 
     return 0;
 }
