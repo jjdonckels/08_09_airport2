@@ -100,9 +100,52 @@ int main(int argv, char** argc) {
     // cout << endl;
 
     // testing _previous_node
-    cout << "Should be 10:\n";
-    node<int>* priorNode = _previous_node(head1, &c);
-    cout << *priorNode << endl;
+    // cout << "Should be 10:\n";
+    // node<int>* priorNode = _previous_node(head1, &c);
+    // cout << *priorNode << endl;
+
+    // testing _delete_node
+    // create dyanmic linked list
+    // node<int>* node3 = new node<int>(9);
+    // node<int>* node2 = new node<int>(6, node3);
+    // node<int>* node1 = new node<int>(3, node2);
+    // cout << "\nOriginal:\n";
+    // _print_list(node1);
+    // int val = _delete_node(node1, node1);
+    // cout << "\n\nDeleted " << val << "\n\n";
+    // cout << "\nUpdated: expected 6 | 9\n";
+    // _print_list(node1);
+    // delete node2;
+    // delete node3;
+    // cout << "\nOriginal list:\n";
+    // _print_list(head1);
+    // node<int>* toDelete;
+    // toDelete = &b;
+    // int oldVal = _delete_node(head1, toDelete);
+    // cout << "\nExpected 10: " << oldVal;
+    // cout << "\nNew list:\n";
+    // _print_list(head1);
+    // cout << endl;
+
+    // testing _copy_list
+    // create dyanmic linked list
+    node<int>* node3 = new node<int>(9);
+    node<int>* node2 = new node<int>(6, node3);
+    node<int>* node1 = new node<int>(3, node2);
+    cout << "Original:\n";
+    cout << node1 << " | " << node2 << " | " << node3 << endl;
+    node<int>* cpyNode;
+    cpyNode = _copy_list(node1);
+    cout << "\n\nCopy:\n";
+    cout << cpyNode << " | " << cpyNode->_next << 
+        " | " << cpyNode->_next->_next << endl;
+    cout << "\nOriginal values:\n";
+    _print_list(node1);
+    cout << "\nCopy values:\n";
+    _print_list(cpyNode);
+    cout << "\n\n";
+    
+
     
 
 

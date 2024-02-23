@@ -123,13 +123,52 @@ node<T>* _previous_node(node<T>* head, node<T>* prev_to_this){
     return temp;
 }
 
-// //delete, return item
-// template <typename T>
-// T _delete_node(node<T>*& head, node<T>* delete_this);
+//delete, return item
+template <typename T>
+T _delete_node(node<T>*& head, node<T>* delete_this){
+    // case for deleting head
+    if (delete_this == head){
+        node<T>* oldNode;
+        oldNode = head;
+        head = head->_next;
+        T val = oldNode->_item;
+        delete oldNode;
+        oldNode = NULL;
+        return val;
+    }
+    else {
+        // case when node to delete isn't head
+        node<T>* tempNode;
+        tempNode = head;
+        // loop until tempNode is at node before the one to be deleted
+        while (tempNode->_next != delete_this){
+            tempNode = tempNode->_next;
+        }
+        node<T>* oldNode;
+        oldNode = delete_this;
+        tempNode->_next = delete_this->_next;
+        T val = oldNode->_item;
+        delete oldNode;
+        oldNode = NULL;
+        return val;
+    }
+}
 
-// //duplicate the list...
-// template <typename T>
-// node<T>* _copy_list(node<T>* head);
+//duplicate the list...
+template <typename T>
+node<T>* _copy_list(node<T>* head){
+    assert(head);
+    node<T>* newHead = new node<T>(head->_item);
+    node<T>* prevNode = newHead;
+    node<T>* tempNode = head->_next;
+    while (tempNode != NULL){
+        node<T>* newNode = new node<T>(tempNode->_item);
+        prevNode->_next = newNode;
+        tempNode = tempNode->_next;
+        prevNode = prevNode->_next;
+    }
+    return newHead;
+}
 
 // //duplicate the list, return pointer to last node in dest... 
 // //     use this function in your queue big three 
