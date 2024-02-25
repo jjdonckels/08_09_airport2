@@ -58,7 +58,7 @@ public:
     ~Queue(){
 
     }
-    Queue& operator=(const Queue<T>& RHS){
+    Queue<T>& operator=(const Queue<T>& RHS){
         return *this;
     }
 
