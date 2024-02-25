@@ -1,5 +1,6 @@
 #include "../node/node.h"
 #include "../linked_list_functions/linkedlistfunctionsTemplated.h"
+#include <assert.h>
 
 template <typename ITEM_TYPE>
 class Stack{
@@ -13,7 +14,7 @@ public:
         //Point Iterator to where p is pointing to
         Iterator(node<ITEM_TYPE>* p){_ptr = p;}
         //dereference operator
-        ITEM_TYPE operator *(){return *_ptr;}
+        ITEM_TYPE operator *(){return _ptr->_item;}
         //true if _ptr is NULL
         bool is_null(){return _ptr == NULL;}
         //true if left != right
@@ -28,6 +29,7 @@ public:
 
         //member operator: ++it or ++it = new_value
         Iterator& operator++(){
+            _ptr = _ptr->_next;
             return *this;
         }
 
@@ -35,7 +37,9 @@ public:
         friend Iterator operator++(Iterator& it,
                                    int unused){
             assert(it._ptr!=NULL);
-            return it;
+            Iterator temp = it;
+            it._ptr = it._ptr->_next;
+            return temp;
         }
 
     private:
@@ -55,7 +59,7 @@ public:
         return *this;
     }
     ITEM_TYPE top(){
-        return *_top;
+        return _top->_item;
     }
     bool empty(){
         return false;
@@ -65,7 +69,7 @@ public:
         ++_size;
     }
     ITEM_TYPE pop(){
-        return _top;
+        return _top->_item;
     }
     template<typename T>
     friend ostream& operator<<(ostream& outs, const Stack<T>& printMe){
