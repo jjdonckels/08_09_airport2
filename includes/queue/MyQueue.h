@@ -60,6 +60,9 @@ public:
     }
 
     Queue(const Queue<T>& copyMe){
+        _front = NULL;
+        _rear = NULL;
+        _size = 0;
         _rear = _copy_list(_front, copyMe._front);
         _size = copyMe._size;
     }

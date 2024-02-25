@@ -3,6 +3,8 @@
 #include <string>
 #include "includes/linked_list_functions/linkedlistfunctionsTemplated.h"
 #include "includes/node/node.h"
+#include "includes/stack/MyStack.h"
+#include "includes/queue/MyQueue.h"
 
 
 using namespace std;
@@ -13,19 +15,38 @@ int main(int argv, char** argc) {
 
     // cout << "\n\n\n=====================" << endl;
 
+    // test queue big 3
+    Queue<int> q1;
+    for (int i = 0; i < 5; i++)
+    {
+        q1.push(i * 10);
+    }
+    cout << &q1 << "\n" << q1 << "\n\n";
+
+    Queue<int> q2(q1);
+    q2.pop();
+
+    cout << &q1 << "\n" << q1 << "\n\n";
+    cout << &q2 << "\n" << q2 << "\n\n";
+
+    q1 = q2;
+
+    cout << &q1 << "\n" << q1 << "\n\n";
+
+
     // sample int linked list
-    node<int> d(20);
-    node<int> c(15, &d, NULL);
-    node<int> b(10, &c, NULL);
-    node<int> a(5, &b, NULL);
-    node<int>* head1 = &a;
+    // node<int> d(20);
+    // node<int> c(15, &d, NULL);
+    // node<int> b(10, &c, NULL);
+    // node<int> a(5, &b, NULL);
+    // node<int>* head1 = &a;
 
     // sample string linked list
-    node<string> dd("four");
-    node<string> cc("three", &dd, NULL);
-    node<string> bb("two", &cc, NULL);
-    node<string> aa("one", &bb, NULL);
-    node<string>* head2 = &aa;
+    // node<string> dd("four");
+    // node<string> cc("three", &dd, NULL);
+    // node<string> bb("two", &cc, NULL);
+    // node<string> aa("one", &bb, NULL);
+    // node<string>* head2 = &aa;
 
 
     // test _print_list (and backwards)
