@@ -1,4 +1,5 @@
 #include "../node/node.h"
+#include "../linked_list_functions/linkedlistfunctionsTemplated.h"
 
 template <typename ITEM_TYPE>
 class Stack{
@@ -60,7 +61,8 @@ public:
         return false;
     }
     void push(ITEM_TYPE item){
-
+        _insert_head(_top, item);
+        ++_size;
     }
     ITEM_TYPE pop(){
         return _top;

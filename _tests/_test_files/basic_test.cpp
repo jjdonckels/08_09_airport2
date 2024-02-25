@@ -91,42 +91,42 @@ bool  test_linked_list_functions(bool debug = false){
 //   return true;
 // }
 
-// bool test_queue(bool debug = false)
-// {
-//   Queue<int> q;
-//   for (int i = 0; i < 10; i++){
-//     q.push(i * 10);
-//     cout <<"queue: "<< q << endl;
-//   }
-//   cout << endl<< endl;
+bool test_queue(bool debug = false)
+{
+  Queue<int> q;
+  for (int i = 0; i < 10; i++){
+    q.push(i * 10);
+    cout <<"queue: "<< q << endl;
+  }
+  cout << endl<< endl;
 
-//   for(Queue<int>::Iterator it = q.begin(); it != q.end(); it++){
-//     cout << "it->>" << *it << endl;
-//   }
-//   cout << endl<< endl;
-//   for (; !q.empty();){
-//     cout << "popping queue: [" << setw(4) << q.pop() << "]: " << q << endl;
-//   }
-//   cout << endl
-//        << endl;
-//   Queue<int>::Iterator it = q.begin();
-//   cout << "Iterator is_null(): " << boolalpha << it.is_null() << endl;
+  for(Queue<int>::Iterator it = q.begin(); it != q.end(); it++){
+    cout << "it->>" << *it << endl;
+  }
+  cout << endl<< endl;
+  for (; !q.empty();){
+    cout << "popping queue: [" << setw(4) << q.pop() << "]: " << q << endl;
+  }
+  cout << endl
+       << endl;
+  Queue<int>::Iterator it = q.begin();
+  cout << "Iterator is_null(): " << boolalpha << it.is_null() << endl;
   
-//   cout << "\n----------------------- \n\n";
+  cout << "\n----------------------- \n\n";
   
   
-//   return true;
-// }
+  return true;
+}
 
 TEST(TEST_FUNCTIONS, TestLinkedListFunctions) {
   bool success = test_linked_list_functions(true);
   EXPECT_EQ(success, true);
 }
 
-// TEST(TEST_FUNCTIONS, TestQueue) {
-//   bool success = test_queue(true);
-//   EXPECT_EQ(success, true);
-// }
+TEST(TEST_FUNCTIONS, TestQueue) {
+  bool success = test_queue(true);
+  EXPECT_EQ(success, true);
+}
 
 // TEST(TEST_FUNCTIONS, TestStack) {
 //   bool success = test_stack(true);
