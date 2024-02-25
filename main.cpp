@@ -15,7 +15,7 @@ int main(int argv, char** argc) {
 
     // cout << "\n\n\n=====================" << endl;
 
-    // test queue big 3
+    // test front, back, size, print_pointers fxns for queue
     Queue<int> q1;
     for (int i = 0; i < 5; i++)
     {
@@ -23,15 +23,30 @@ int main(int argv, char** argc) {
     }
     cout << &q1 << "\n" << q1 << "\n\n";
 
-    Queue<int> q2(q1);
-    q2.pop();
+    cout << "front: " << q1.front() << endl;
+    cout << "back: " << q1.back() << endl;
+    cout << "size: " << q1.size() << endl;
+    cout << "print:\n";
+    q1.print_pointers();
+    cout << "\n\n";
 
-    cout << &q1 << "\n" << q1 << "\n\n";
-    cout << &q2 << "\n" << q2 << "\n\n";
+    // test queue big 3
+    // Queue<int> q1;
+    // for (int i = 0; i < 5; i++)
+    // {
+    //     q1.push(i * 10);
+    // }
+    // cout << &q1 << "\n" << q1 << "\n\n";
 
-    q1 = q2;
+    // Queue<int> q2(q1);
+    // q2.pop();
 
-    cout << &q1 << "\n" << q1 << "\n\n";
+    // cout << &q1 << "\n" << q1 << "\n\n";
+    // cout << &q2 << "\n" << q2 << "\n\n";
+
+    // q1 = q2;
+
+    // cout << &q1 << "\n" << q1 << "\n\n";
 
 
     // sample int linked list
