@@ -8,8 +8,8 @@
 
 #include "../../includes/node/node.h"
 #include "../../includes/linked_list_functions/linkedlistfunctionsTemplated.h"
-// #include "../../includes/stack/MyStack.h"
-// #include "../../includes/queue/MyQueue.h"
+#include "../../includes/stack/MyStack.h"
+#include "../../includes/queue/MyQueue.h"
 
 //------------------------------------------------------------------------------------------
 //Files we are testing:
@@ -39,7 +39,7 @@ bool  test_linked_list_functions(bool debug = false){
   cout << "\n\ntesting prev and next links: " << endl;
   this_node = _search_list(head, n);
   cout << "found " << n << ": " << *this_node << endl;
-  cout << "before: " << n << ": " << *(this_node->_prev) << endl;
+  //cout << "before: " << n << ": " << *(this_node->_prev) << endl;
   cout << "after: " << n << ": " << *(this_node->_next) << endl;
 
   cout << "\n\ninsert_after(): " << endl;
