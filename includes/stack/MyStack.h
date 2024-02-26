@@ -47,41 +47,58 @@ public:
     };
 
     Stack(){
-
+        _top = NULL;
+        _size = 0;
     }
     Stack(const Stack<ITEM_TYPE>& copyMe){
-
+        _top = NULL;
+        _size = copyMe._size;
+        _top = _copy_list(copyMe._top);
     }
     ~Stack(){
-
+        _clear_list(_top);
     }
     Stack<ITEM_TYPE>& operator=(const Stack<ITEM_TYPE>& RHS){
+        // clear any pre-existing list
+        _clear_list(_top);
+        _size = RHS._size;
+        _top = _copy_list(RHS._top);
         return *this;
     }
     ITEM_TYPE top(){
         return _top->_item;
     }
     bool empty(){
-        return false;
+        return _size == 0;
     }
     void push(ITEM_TYPE item){
         _insert_head(_top, item);
         ++_size;
     }
     ITEM_TYPE pop(){
-        return _top->_item;
+        --_size;
+        return _delete_node(_top, _top);
     }
     template<typename T>
     friend ostream& operator<<(ostream& outs, const Stack<T>& printMe){
+        outs << "Stack:Head->";
+        node<T>* temp = printMe._top;
+        while (temp != NULL){
+            outs << "[" << temp->_item << "]->";
+            temp = temp->_next;
+        }
+        outs << "|||\n";
         return outs;
     }
     //Iterator to the head node
     Iterator begin() const{
-        return Iterator(_top);
+        Iterator it(_top);
+        return it;
     }
     //Iterator to NULL
     Iterator end() const{
-        return Iterator(NULL);
+        Iterator it(NULL);
+        return it;
     }
     int size() const { return _size; }
 

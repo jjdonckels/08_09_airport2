@@ -65,31 +65,31 @@ bool  test_linked_list_functions(bool debug = false){
   return true;
 }
 
-// bool test_stack(bool debug = false)
-// {
-//   Stack<int> s;
-//   for (int i = 0; i < 10; i++){
-//     s.push(i * 10);
-//     cout <<"stack: "<< s << endl;
-//   }
-//   cout << endl<< endl;
+bool test_stack(bool debug = false)
+{
+  Stack<int> s;
+  for (int i = 0; i < 10; i++){
+    s.push(i * 10);
+    cout <<"stack: "<< s << endl;
+  }
+  cout << endl<< endl;
 
-//   for(Stack<int>::Iterator it = s.begin(); it != s.end(); it++){
-//     cout << "it->>" << *it << endl;
-//   }
-//   cout << endl<< endl;
-//   for (; !s.empty();){
-//     cout << "popping stack: [" << setw(4) << s.pop() << "]: " << s << endl;
-//   }
-//   cout << endl
-//        << endl;
-//   Stack<int>::Iterator it = s.begin();
-//   cout << "Iterator is_null(): " << boolalpha << it.is_null() << endl;
+  for(Stack<int>::Iterator it = s.begin(); it != s.end(); it++){
+    cout << "it->>" << *it << endl;
+  }
+  cout << endl<< endl;
+  for (; !s.empty();){
+    cout << "popping stack: [" << setw(4) << s.pop() << "]: " << s << endl;
+  }
+  cout << endl
+       << endl;
+  Stack<int>::Iterator it = s.begin();
+  cout << "Iterator is_null(): " << boolalpha << it.is_null() << endl;
 
-//   cout << "\n----------------------- \n\n";
+  cout << "\n----------------------- \n\n";
   
-//   return true;
-// }
+  return true;
+}
 
 bool test_queue(bool debug = false)
 {
@@ -128,10 +128,10 @@ TEST(TEST_FUNCTIONS, TestQueue) {
   EXPECT_EQ(success, true);
 }
 
-// TEST(TEST_FUNCTIONS, TestStack) {
-//   bool success = test_stack(true);
-//   EXPECT_EQ(success, true);
-// }
+TEST(TEST_FUNCTIONS, TestStack) {
+  bool success = test_stack(true);
+  EXPECT_EQ(success, true);
+}
 
 
 

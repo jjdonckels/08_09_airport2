@@ -158,7 +158,10 @@ T _delete_node(node<T>*& head, node<T>* delete_this){
 //duplicate the list...
 template <typename T>
 node<T>* _copy_list(node<T>* head){
-    assert(head && "tried to copy empty list in _copy_list");
+    // assert(head && "tried to copy empty list in _copy_list");
+    if (head == NULL){
+        return NULL;
+    }
     node<T>* newHead = new node<T>(head->_item);
     node<T>* prevNode = newHead;
     node<T>* tempNode = head->_next;

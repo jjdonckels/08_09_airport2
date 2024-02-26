@@ -117,7 +117,7 @@ public:
     }
     void print_pointers(){
         node<T>* temp = _front;
-        cout << "Head->";
+        cout << "Queue:Head->";
         while (temp != NULL){
             cout << "[" << temp->_item << "]->";
             temp = temp->_next;
@@ -128,7 +128,7 @@ public:
     template<typename TT>
     friend ostream& operator << (ostream& outs, const Queue<TT>& printMe){
         node<TT>* temp = printMe._front;
-        outs << "Head->";
+        outs << "Queue:Head->";
         while (temp != NULL){
             outs << "[" << temp->_item << "]->";
             temp = temp->_next;

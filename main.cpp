@@ -16,7 +16,13 @@ int main(int argv, char** argc) {
     // cout << "\n\n\n=====================" << endl;
 
     // test front, back, size, print_pointers fxns for queue
-    // Queue<int> q1;
+    Queue<int> q1;
+    Queue<int> q2(q1);
+
+    cout << &q1 << " | " << &q2 << "\n\n";
+    q1.push(5);
+    q2.push(2);
+    cout << q1 << "\n" << q2 << "\n\n";
     // for (int i = 0; i < 5; i++)
     // {
     //     q1.push(i * 10);
