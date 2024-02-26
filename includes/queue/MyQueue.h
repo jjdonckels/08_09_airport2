@@ -11,9 +11,13 @@ public:
         //give access to list to access _ptr
         friend class Queue;
         //default ctor
-        Iterator(){_ptr = NULL;}
+        Iterator(){
+            _ptr = NULL;
+        }
         //Point Iterator to where p is pointing to
-        Iterator(node<T>* p){_ptr = p;}
+        Iterator(node<T>* p){
+            _ptr = p;
+        }
         //dereference operator
         T operator *(){
             return _ptr->_item;
@@ -24,14 +28,12 @@ public:
         }
         //true if left != right
         friend bool operator !=(const Iterator& left,
-                                const Iterator& right)
-        {
+                                const Iterator& right){
             return left._ptr != right._ptr;
         }
         //true if left == right
         friend bool operator ==(const Iterator& left,
-                                const Iterator& right)
-        {
+                                const Iterator& right){
             return left._ptr == right._ptr;
         }
 
@@ -72,6 +74,7 @@ public:
     Queue<T>& operator=(const Queue<T>& RHS){
         // clear any pre-existing list
         _clear_list(_front);
+        
         _rear = _copy_list(_front, RHS._front);
         _size = RHS._size;
         return *this;
