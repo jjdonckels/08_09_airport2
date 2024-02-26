@@ -15,14 +15,47 @@ int main(int argv, char** argc) {
 
     // cout << "\n\n\n=====================" << endl;
 
-    // test front, back, size, print_pointers fxns for queue
-    Queue<int> q1;
-    Queue<int> q2(q1);
+    // test stack fxns
+    // cout << "Testing big 3:\n\n";
+    // Stack<int> s1;
+    // s1.push(5);
+    // s1.push(10);
+    // s1.push(15);
 
-    cout << &q1 << " | " << &q2 << "\n\n";
-    q1.push(5);
-    q2.push(2);
-    cout << q1 << "\n" << q2 << "\n\n";
+    // cout << "s1: " << &s1 << "\n" << s1 << "\n\n";
+
+    // Stack<int> s2(s1);
+    // cout << "s2: " << &s2 << "\n" << s2 << "\n\n";
+
+    // s2.push(20);
+    // s1.pop();
+    // s1.pop();
+    // cout << "s1: " << &s1 << " | " << s1 << "\ns2: " 
+    //      << &s2 << " | " << s2 << "\n\n";
+    
+    // Stack<int> s3(s1);
+    // s1 = s2;
+    // s2 = s3;
+    // cout << "s1: " << &s1 << " | " << s1 << "\n";
+    // cout << "s2: " << &s2 << " | " << s2 << "\n\n";
+
+    // cout << "Testing Stack functions\n\n";
+    // cout << "Top should be 15: " << s1.top() << endl;
+    // cout << "empty should be 0: " << s1.empty() << endl;
+    // cout << "popped 15: " << s1.pop() << " | " << s1 << endl;
+    // cout << "size should be 2: " << s1.size() << "\n\n";
+    // s1.pop();
+    // s1.pop();
+    // cout << "empty should be 1: " << s1.empty() << "\n\n";
+
+    // test front, back, size, print_pointers fxns for queue
+    // Queue<int> q1;
+    // Queue<int> q2(q1);
+
+    // cout << &q1 << " | " << &q2 << "\n\n";
+    // q1.push(5);
+    // q2.push(2);
+    // cout << q1 << "\n" << q2 << "\n\n";
     // for (int i = 0; i < 5; i++)
     // {
     //     q1.push(i * 10);
