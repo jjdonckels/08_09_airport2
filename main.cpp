@@ -16,19 +16,19 @@ int main(int argv, char** argc) {
     // cout << "\n\n\n=====================" << endl;
 
     // test front, back, size, print_pointers fxns for queue
-    Queue<int> q1;
-    for (int i = 0; i < 5; i++)
-    {
-        q1.push(i * 10);
-    }
-    cout << &q1 << "\n" << q1 << "\n\n";
+    // Queue<int> q1;
+    // for (int i = 0; i < 5; i++)
+    // {
+    //     q1.push(i * 10);
+    // }
+    // cout << &q1 << "\n" << q1 << "\n\n";
 
-    cout << "front: " << q1.front() << endl;
-    cout << "back: " << q1.back() << endl;
-    cout << "size: " << q1.size() << endl;
-    cout << "print:\n";
-    q1.print_pointers();
-    cout << "\n\n";
+    // cout << "front: " << q1.front() << endl;
+    // cout << "back: " << q1.back() << endl;
+    // cout << "size: " << q1.size() << endl;
+    // cout << "print:\n";
+    // q1.print_pointers();
+    // cout << "\n\n";
 
     // test queue big 3
     // Queue<int> q1;

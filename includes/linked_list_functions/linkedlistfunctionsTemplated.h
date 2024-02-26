@@ -175,7 +175,11 @@ node<T>* _copy_list(node<T>* head){
 //     use this function in your queue big three 
 template <typename T>
 node<T> *_copy_list(node<T> *&dest, node<T> *src){
-    assert(src && "tried to copy empty list in _copy_list src to dest");
+    // assert(src && "tried to copy empty list in _copy_list src to dest");
+    if (src == NULL){
+        dest = NULL;
+        return dest;
+    }
     if (dest == NULL){
         dest = new node<T>(src->_item);
     }
