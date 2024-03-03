@@ -1,3 +1,5 @@
+#ifndef MYSTACK_H
+#define MYSTACK_H
 #include "../node/node.h"
 #include "../linked_list_functions/linkedlistfunctionsTemplated.h"
 #include <assert.h>
@@ -117,3 +119,5 @@ private:
     node<T>* _top;
     int _size;
 };
+
+#endif

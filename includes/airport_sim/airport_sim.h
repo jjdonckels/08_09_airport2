@@ -3,6 +3,7 @@
 #include <iostream>
 #include <assert.h>
 #include <cstdlib>
+#include "../queue/MyQueue.h"
 
 using namespace std;
 
@@ -55,6 +56,7 @@ private:
     double probability; // Probability of query( ) returning true
 };
 
+
 class plane_averager
 {
 public:
@@ -73,6 +75,20 @@ private:
     double landing_sum;
 };
 
+
+class airport
+{
+public:
+    airport(unsigned int seconds_to_land = 5, unsigned int seconds_to_takeoff = 15);
+    void one_second();
+    void start_landing(); // put plane on runway from landing queue
+    void start_takeoff(); // put plane on runway from takeoff queue
+    bool is_busy() const { return (time_left > 0); }
+private:
+    unsigned int sec_to_land;
+    unsigned int sec_to_takeoff;
+    unsigned int time_left;
+};
 
 
 #endif

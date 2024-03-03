@@ -3,6 +3,7 @@
 #include <iostream>
 #include "airport_sim.h"
 
+
 using namespace std;
 
 airport_simulation::airport_simulation(unsigned int t_off_time,
@@ -23,7 +24,34 @@ airport_simulation::airport_simulation(unsigned int t_off_time,
 void airport_simulation::run_simulation()
 {
     unsigned int num_landed = 0, num_took_off = 0, num_crashed = 0;
+    Queue<unsigned int> takeoff_q;
+    Queue<unsigned int> landing_q;
+    bool_probability land(landing_probability);
+    bool_probability takeoff(takeoff_probability);
+    plane_averager times;
+    unsigned int current_second;
 
+    // loop through simulation for given amount of time
+    for (current_second = 1; current_second <= total_time; ++current_second)
+    {
+        // each loop iteration is one second of time
+
+        //check if a plane has arrived in landing queue
+        if (land.query()){
+            landing_q.push(current_second); // add plane to landing queue
+        }
+        
+        //check if a plane has arrived in takeoff queue
+        if (takeoff.query()){
+            takeoff_q.push(current_second); // add plane to takeoff queue
+        }
+
+        // check if runway can be used by 
+        // checking if runway is available and if there are planes first in 
+        // landing queue then in takeoff queue since landing planes get priority
+        
+
+    }
 
     
     
@@ -94,4 +122,29 @@ double plane_averager::landing_avg() const
 {
     assert(landing_count > 0);
     return landing_sum / landing_count;
+}
+
+airport::airport(unsigned int seconds_to_land, unsigned int seconds_to_takeoff)
+{
+    sec_to_land = seconds_to_land;
+    sec_to_takeoff = seconds_to_takeoff;
+    time_left = 0;
+}
+
+void airport::one_second()
+{
+    if (is_busy())
+        --time_left;
+}
+
+void airport::start_landing()
+{
+    assert(!is_busy());
+    time_left = sec_to_land;
+}
+
+void airport::start_takeoff()
+{
+    assert(!is_busy());
+    time_left = sec_to_takeoff;
 }

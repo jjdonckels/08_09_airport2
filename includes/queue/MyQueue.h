@@ -1,3 +1,5 @@
+#ifndef MYQUEUE_H
+#define MYQUEUE_H
 #include "../node/node.h"
 #include "../linked_list_functions/linkedlistfunctionsTemplated.h"
 #include <assert.h>
@@ -144,3 +146,5 @@ private:
     node<T>* _rear;
     int _size;
 };
+
+#endif
