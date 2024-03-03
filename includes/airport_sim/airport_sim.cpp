@@ -31,6 +31,8 @@ void airport_simulation::run_simulation()
     plane_averager times;
     unsigned int current_second;
 
+    airport runway(landing_time, takeoff_time);
+
     // loop through simulation for given amount of time
     for (current_second = 1; current_second <= total_time; ++current_second)
     {
@@ -46,11 +48,56 @@ void airport_simulation::run_simulation()
             takeoff_q.push(current_second); // add plane to takeoff queue
         }
 
-        // check if runway can be used by 
         // checking if runway is available and if there are planes first in 
         // landing queue then in takeoff queue since landing planes get priority
-        
+        if (!runway.is_busy())
+        {
+            // check landing queue first 
+            if (!landing_q.empty()){
+                // if a plane is in landing queue, have it use the runway
+                // take difference of current time and time from queue to 
+                // find time spent waiting
+                unsigned int waiting_time = current_second - landing_q.pop();
 
+                // check if plane ran out of fuel while waiting
+                if (waiting_time > fuel_limit){
+                    // this branch means the plane waited too long and crashed
+                    ++num_crashed;
+                }
+                else {
+                    // only enter this branch if plane didn't crash
+                    // add waiting time from landing queue to averager
+                    times.add_landing(waiting_time); 
+
+                    // record landed plane
+                    ++num_landed;
+
+                    // now the plane is actively landing on runway, so 
+                    // mark runway as being used for landing
+                    runway.start_landing();
+                }                
+            }
+            else if (!takeoff_q.empty()){
+                // if no planes in landing queue and planes in takeoff queue, 
+                // this branch will be entered
+
+                // take difference of current time and time from queue to 
+                // find time spent waiting
+                unsigned int waiting_time = current_second - takeoff_q.pop();
+                // add waiting time from takeoff queue to averager
+                times.add_takeoff(waiting_time);
+
+                // record plane that took off
+                ++num_took_off;
+
+                // now the plane is actively taking off on runway, so
+                // mark runway as being used for takeoff
+                runway.start_takeoff();
+            }
+        }
+
+        // have the runway simulate the passage of one second.
+        runway.one_second();
     }
 
     
@@ -72,10 +119,10 @@ void airport_simulation::run_simulation()
     cout << num_landed << " landed\n";
     cout << num_took_off << " took off\n";
     cout << num_crashed << " planes crashed. :(\n";
-    cout << "Average waiting time to land: ";
-    cout << "\nAverage waiting time to take off: ";
-    cout << "\nplanes in landing queue : ";
-    cout << "\nplanes in take off queue: ";
+    cout << "Average waiting time to land: " << times.landing_avg();
+    cout << "\nAverage waiting time to take off: " << times.takeoff_avg();
+    cout << "\nplanes in landing queue : " << landing_q.size();
+    cout << "\nplanes in take off queue: " << takeoff_q.size();
     cout << "\n============================================\n";
 }
 

@@ -14,6 +14,7 @@
   - linked list functions
   - Stack class
   - Queue class
+  - Airport simulation
 
 <br><br>
 
@@ -29,7 +30,22 @@
 
 # Reflections:
 
-- none
+Airport Simulation
+
+Tested with the following values:
+- time to take off: 15
+- time to land: 5
+- probability of landing: 0.1
+- probability of takeoff: 0.08
+- fuel: time to crash: 20
+- total simulation time: 1000 - 1000000
+
+Analysis:
+- Number of landing planes always greater than number of planes that take off since landing planes get priority
+- Average time to land is pretty consistent around 8-9 seconds as the simulation time increases from 1000 up to 100000 and more
+- Average time to take off increases significantly with duration of simulation as all the landing planes get priority before any planes can take off, meaning takeoff queue builds up a lot and when the simulation ends there are a lot of planes left in the takeoff queue but always few to no planes left in the landing queue
+
+Overall, with the amount of planes waiting to take off and the wait times for taking off increasing more and more as the duration of the simulation increases, it appears that more than one runway would be useful to keep traffic buildup from happening. More runways would decrease wait times for takeoff as landing wait times aren't really affected throughout the simulation. Having a second runway exclusively for takeoffs would be much more efficient and there would be no traffic buildup, very short wait times always, and no planes would crash. 
 
 # **output**
 <pre>
@@ -207,10 +223,11 @@ Iterator is_null(): true
 <br/><br/><br/><br/>
 </pre>
 # testB.cpp output:
+
 ----------running testB.cpp---------
 
 
-[==========] Running 3 tests from 3 test suites.
+[==========] Running 4 tests from 4 test suites.
 [----------] Global test environment set-up.
 [----------] 1 test from TEST_STUB
 [ RUN      ] TEST_STUB.TestStub
@@ -283,9 +300,33 @@ q2: Queue:Head->[0]->[1]->[2]->[3]->[4]->[5]->[6]->[7]->[8]->[9]->|||
 [       OK ] TEST_QUEUE.TestQueue (0 ms)
 [----------] 1 test from TEST_QUEUE (0 ms total)
 
+[----------] 1 test from TEST_AIPRORT
+[ RUN      ] TEST_AIPRORT.TestAirport
+
+============================================
+time to take off        : 15
+time to land            : 5
+probability of landing  : 0.10
+probability of takeoff  : 0.08
+fuel: time to crash     : 20
+total simulation time   : 1440
+
+. . . . . . . . . . . . . . . . . . . . . . . .
+128 landed
+54 took off
+0 planes crashed. :(
+Average waiting time to land: 8.836
+Average waiting time to take off: 419.667
+planes in landing queue : 1
+planes in take off queue: 62
+============================================
+[       OK ] TEST_AIPRORT.TestAirport (0 ms)
+[----------] 1 test from TEST_AIPRORT (0 ms total)
+
 [----------] Global test environment tear-down
-[==========] 3 tests from 3 test suites ran. (0 ms total)
-[  PASSED  ] 3 tests.
+[==========] 4 tests from 4 test suites ran. (0 ms total)
+[  PASSED  ] 4 tests.
+
 <pre>
 <br/><br/><br/><br/>
 </pre>

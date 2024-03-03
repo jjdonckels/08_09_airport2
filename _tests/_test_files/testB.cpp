@@ -70,39 +70,41 @@ bool test_queue(bool debug = false)
 
 bool test_airport(bool debug = false)
 {
-  // Queue<int> q1;
+  unsigned int takeoff_time = 15;
+  unsigned int landing_time = 5;
 
-  // for (int i = 0; i < 10; i++){
-  //   q1.push(i * 100);
-  // }
+  double landing_probability = 0.10;
+  double takeoff_probability = 0.08;
 
-  // cout << "\nairport test: " << q1 << endl;
+  unsigned int fuel_limit = 20;
+  unsigned int simulation_time = 1440;
 
-  airport_simulation a1;
+  airport_simulation a1(takeoff_time, takeoff_probability, landing_time, 
+                        landing_probability, fuel_limit, simulation_time);
   a1.run_simulation();
 
   return true;
 
 }
 
-// TEST(TEST_STUB, TestStub) {
+TEST(TEST_STUB, TestStub) {
   
-//   //EXPECT_EQ(0, <your individual test functions are called here>);
+  //EXPECT_EQ(0, <your individual test functions are called here>);
 
-//   EXPECT_EQ(1, test_stub(false));
-// }
+  EXPECT_EQ(1, test_stub(false));
+}
 
-// TEST(TEST_STACK, TestStack) {
+TEST(TEST_STACK, TestStack) {
 
-//   EXPECT_EQ(1, test_stack(false));
+  EXPECT_EQ(1, test_stack(false));
 
-// }
+}
 
-// TEST(TEST_QUEUE, TestQueue) {
+TEST(TEST_QUEUE, TestQueue) {
 
-//   EXPECT_EQ(1, test_queue());
+  EXPECT_EQ(1, test_queue());
 
-// }
+}
 
 TEST(TEST_AIPRORT, TestAirport) {
 
