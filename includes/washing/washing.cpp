@@ -22,19 +22,19 @@
 #include "washing.h"  // Provides bool_source, averager, washer definitions
 using namespace std;
 
-    bool_probability::bool_probability(double p)
-    // Library facilities used: cassert
-    {
-        assert(p >= 0);
-        assert(p <= 1);
-        probability = p;
-    }
+    // bool_probability::bool_probability(double p)
+    // // Library facilities used: cassert
+    // {
+    //     assert(p >= 0);
+    //     assert(p <= 1);
+    //     probability = p;
+    // }
 
-    bool bool_probability::query( ) const
-    // Library facilities used: cstdlib
-    {
-        return (rand( ) < probability * RAND_MAX);
-    }
+    // bool bool_probability::query( ) const
+    // // Library facilities used: cstdlib
+    // {
+    //     return (rand( ) < probability * RAND_MAX);
+    // }
 
     averager::averager( )
     {

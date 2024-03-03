@@ -4,6 +4,7 @@
 #include "../../includes/node/node.h"
 #include "../../includes/stack/MyStack.h"
 #include "../../includes/queue/MyQueue.h"
+#include "../../includes/airport_sim/airport_sim.h"
 
 using namespace std;
 
@@ -67,22 +68,45 @@ bool test_queue(bool debug = false)
   return true;
 }
 
-TEST(TEST_STUB, TestStub) {
+bool test_airport(bool debug = false)
+{
+  // Queue<int> q1;
+
+  // for (int i = 0; i < 10; i++){
+  //   q1.push(i * 100);
+  // }
+
+  // cout << "\nairport test: " << q1 << endl;
+
+  airport_simulation a1;
+  a1.run_simulation();
+
+  return true;
+
+}
+
+// TEST(TEST_STUB, TestStub) {
   
-  //EXPECT_EQ(0, <your individual test functions are called here>);
+//   //EXPECT_EQ(0, <your individual test functions are called here>);
 
-  EXPECT_EQ(1, test_stub(false));
-}
+//   EXPECT_EQ(1, test_stub(false));
+// }
 
-TEST(TEST_STACK, TestStack) {
+// TEST(TEST_STACK, TestStack) {
 
-  EXPECT_EQ(1, test_stack(false));
+//   EXPECT_EQ(1, test_stack(false));
 
-}
+// }
 
-TEST(TEST_QUEUE, TestQueue) {
+// TEST(TEST_QUEUE, TestQueue) {
 
-  EXPECT_EQ(1, test_queue());
+//   EXPECT_EQ(1, test_queue());
+
+// }
+
+TEST(TEST_AIPRORT, TestAirport) {
+
+  EXPECT_EQ(1, test_airport());
 
 }
 

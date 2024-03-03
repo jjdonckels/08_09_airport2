@@ -64,16 +64,16 @@
 #define WASHING_H
 #include <cstdlib> // Provides std::size_t
 
-    class bool_probability
-    {
-    public:
-        // CONSTRUCTOR
-        bool_probability(double p = 0.5);
-        // CONSTANT function
-        bool query( ) const;
-    private:
-        double probability; // Probability of query( ) returning true
-    };
+    // class bool_probability
+    // {
+    // public:
+    //     // CONSTRUCTOR
+    //     bool_probability(double p = 0.5);
+    //     // CONSTANT function
+    //     bool query( ) const;
+    // private:
+    //     double probability; // Probability of query( ) returning true
+    // };
 
     class averager
     {
