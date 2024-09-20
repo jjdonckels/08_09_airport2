@@ -70,6 +70,7 @@ node<T>* _insert_after(node<T>*& head,
         return _insert_head(head, insert_this);
     }
     else if (after_this == NULL){
+        cout << "\n\ninsert_after branch where after_this == NULL\n\n";
         // create new node after head
         node<T>* newNode = new node<T>(insert_this);
         // connect head to newNode
